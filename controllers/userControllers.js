@@ -101,11 +101,12 @@ const get_all_data = async (req, res) => {
 
     const formatData = getData.map(item => ({
 
-      imagePath: path.join(__dirname, '..', 'public/images', item.images),
+      // imagePath: path.join(__dirname, '..', 'public/images', item.images),
       name: item.name,
       brand: item.brand,
       price: item.price,
-      id: item._id
+      id: item._id,
+      images: item.images
 
     }));
 
@@ -136,7 +137,8 @@ const get_data = async (req, res) => {
       const imagePath = path.join(__dirname, '..', 'public/images', imagename);
 
 
-      res.status(200).send({ success: true, msg: "Your data is ", data: { findData, imagePath } });
+      // res.status(200).send({ success: true, msg: "Your data is ", data: { findData, imagePath } });
+      res.status(200).send({ success: true, msg: "Your data is ", data: { findData, imagename } });
 
       // res.status(200).send({ success: true, msg: "Your data is ", data: findData });
 
